@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener cl;
     String weburi;
 
-
+    // 상속
     class MyWeb extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -26,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // 오버라이드
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // activity_main에서 불러온다.
         setContentView(R.layout.activity_main);
 
-
+        // 클래스에서 쓸 go 와 activity_main id의 go
         go = (Button) findViewById(R.id.go);
         right = (Button) findViewById(R.id.right);
         left = (Button) findViewById(R.id.left);
@@ -46,11 +48,13 @@ public class MainActivity extends AppCompatActivity {
         wv.setInitialScale(35); //35%
         wv.getSettings().setUseWideViewPort(true);
 
+        // OnClickListener 선언 
         cl = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
 
+                    // go일 경우
                     case R.id.go :
                         weburi = uri.getText().toString();
                         if(weburi.startsWith("http://192.168.0.174:3000/")) {
@@ -58,11 +62,13 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             wv.loadUrl("http://192.168.0.174:3000/" + weburi); }
                         break;
-
+                    
+                    // left일 경우
                     case R.id.left :
                         wv.goBack();
                         break;
 
+                    // right일 경우
                     case R.id.right :
                         wv.goForward();
                         break;
@@ -70,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+        
+        // OnClickListener 사용했던 cl 에서 불러온다.
         go.setOnClickListener(cl);
         right.setOnClickListener(cl);
         left.setOnClickListener(cl);
