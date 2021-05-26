@@ -1,6 +1,6 @@
 
-// ÇÐ°ú¸¦ °ü¸®ÇØ¾ßÇÏ´Â °ÍÀº µû·Î °ü¸®¸¦ ÇØ¾ßÇÑ´Ù.
-// °¡´ÉÇÑ ¼Ò½ºÄÚµå¸¦ Àû°Ô º¯È¯ÇÏ´Â°Ô Áß¿äÇÏ´Ù.
+// í•™ê³¼ë¥¼ ê´€ë¦¬í•´ì•¼í•˜ëŠ” ê²ƒì€ ë”°ë¡œ ê´€ë¦¬ë¥¼ í•´ì•¼í•œë‹¤.
+// ê°€ëŠ¥í•œ ì†ŒìŠ¤ì½”ë“œë¥¼ ì ê²Œ ë³€í™˜í•˜ëŠ”ê²Œ ì¤‘ìš”í•˜ë‹¤.
 
 public class ComputerStudent extends Student {
 	public static final int COMPUTER_SUBJECT = 2;
@@ -9,29 +9,33 @@ public class ComputerStudent extends Student {
 
 	public ComputerStudent() {}
 	public ComputerStudent( String name, String departmentName, 	
-					int[] subjects, int [] computerSubjects ) { // superclassÀÇ »ý¼ºµµ °í·ÁÇØ¾ßÇÑ´Ù.
-		// String name, String departmentName, int[] subjects superclass¿¡ Àü´ÞÇÏ´Â ºÎºÐ
+					int[] subjects, int [] computerSubjects ) { // superclassì˜ ìƒì„±ë„ ê³ ë ¤í•´ì•¼í•œë‹¤.
+		// String name, String departmentName, int[] subjects superclassì— ì „ë‹¬í•˜ëŠ” ë¶€ë¶„
 		super( name, departmentName, subjects );
 		System.arraycopy( computerSubjects, 0, this.computerSubjects, 0, computerSubjects.length );
 		calculateTotal();
 		
 	}
 	
-	protected void calculateTotal() { // ¿©±â´Â protected ´ë½Å private·Î ¼±¾ðÇØµµ µÊ.
+	protected void calculateTotal() { // ì—¬ê¸°ëŠ” protected ëŒ€ì‹  privateë¡œ ì„ ì–¸í•´ë„ ë¨.
 		super.calculateTotal();
 		
+		// íƒ€ìž… ì„ ì–¸
 		int total = getTotal();
 		double average;
 		String grade;
 		
+		// forë¬¸
 		for ( int subject : computerSubjects ) {
 			total += subject;
 		}
 		setTotal( total );
 		
+		// í‰ê·  ê³„ì‚°
 		average = ( double )total / ( COMMON_SUBJECT + COMPUTER_SUBJECT );
 		setAverage( average );
 		
+		// ê¸°ì¤€ ì •í•˜ê¸°
 		if ( average >= EXCELLENT ) {
 			grade = "Excellent";
 		} else if ( average < FAIL ) {
@@ -42,6 +46,7 @@ public class ComputerStudent extends Student {
 		setGrade( grade );
 	}
 
+	// toString ìžë™ìƒì„±ë¬¸
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
