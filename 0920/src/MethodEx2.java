@@ -4,8 +4,9 @@ public class MethodEx2 {
 	{
 		   int arr[]={10,20,30,40,50,60,70,80,90,100};
 		   Number obj = new Number(arr);
-		   System.out.println("���հ� : "+obj.getTotal());
-		   System.out.println("��� : "+obj.getAverage());
+		// getTotal과 getAverage를 이용해서 평균 산출
+		   System.out.println("ÃÑÇÕ°è : "+obj.getTotal());
+		   System.out.println("Æò±Õ : "+obj.getAverage());
 	}
 
 }
