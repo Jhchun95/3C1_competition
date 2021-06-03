@@ -11,6 +11,7 @@
     android:weightSum="1"
     tools:context="com.example.jjh10.CheckPhotos.MainActivity">
 
+    /** 리니어 레이아웃을 이용하여 적절하게 배치 **/
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -53,7 +54,7 @@
             android:layout_weight="1"
             android:background="#FAF4C0"
             android:layout_margin="5dp"
-            android:text="�ڷ�" />
+            android:text="µÚ·Î" />
 
         <Button
             android:id="@+id/right"
@@ -62,7 +63,7 @@
             android:layout_weight="1"
             android:background="#FAF4C0"
             android:layout_margin="5dp"
-            android:text="������"
+            android:text="¾ÕÀ¸·Î"
             />
     </LinearLayout>
 
