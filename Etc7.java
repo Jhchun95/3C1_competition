@@ -1,7 +1,7 @@
 package mydolist;
 
 public class Etc7 {
-
+	// GIT_practice에 있는 이 파일은 추후 정리
 	// 405
 	class InstanceInner {
 		int iv = 100;
