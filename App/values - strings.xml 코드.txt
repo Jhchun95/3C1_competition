@@ -1,3 +1,4 @@
 <resources>
+    /** value.xml에서 앱 이름 변경하는 코드 **/
     <string name="app_name">CheckPhoto</string>
 </resources>
