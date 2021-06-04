@@ -8,7 +8,7 @@ public class Forth {
 		// TODO Auto-generated method stub
 
 		Dish dish = new Dish();
-		// ÀÓ½Ã inner class ¹æ½ÄÀ¸·Î Thread µ¿ÀÛ
+		// ì„ì‹œ inner class ë°©ì‹ìœ¼ë¡œ Thread ë™ì‘
 		new Thread(new Customer(dish)).start();
 		new Thread(new Cook(dish)).start();
 		
@@ -72,19 +72,19 @@ class Dish {
 	}
 }
 
-class Cook implements Runnable { // »ı»êÀÚ Thread
+class Cook implements Runnable { // ìƒì‚°ì Thread
 	private final Dish dish;
 	public Cook(Dish dish) {
 		this.dish = dish;
 	}
 	private void cook(int i) throws InterruptedException {
 		synchronized (dish) {
-			while(!dish.isEmpty() ) { // °øÀ¯ ÀÚ¿ø ºñ¾ú´ÂÁö È®ÀÎ
+			while(!dish.isEmpty() ) { // ê³µìœ  ìì› ë¹„ì—ˆëŠ”ì§€ í™•ì¸
 				dish.wait();
 			}
 			dish.setEmpty(false);
-			System.out.println(i+ "¹øÂ° À½½Ä ¿Ï·á!!");
-			dish.notify();  // ¼ÒºñÀÚ Thread ¿¡°Ô Åëº¸
+			System.out.println(i+ "ë²ˆì§¸ ìŒì‹ ì™„ë£Œ!!");
+			dish.notify();  // ì†Œë¹„ì Thread ì—ê²Œ í†µë³´
 		}
 	}
 	public void run( ) {
@@ -97,19 +97,19 @@ class Cook implements Runnable { // »ı»êÀÚ Thread
 	}
 }
 
-class Customer implements Runnable { // »ı»êÀÚ Thread
+class Customer implements Runnable { // ìƒì‚°ì Thread
 	private final Dish dish;
 	public Customer(Dish dish) {
 		this.dish = dish;
 	}
 	private void cook(int i) throws InterruptedException {
 		synchronized (dish) {
-			while(!dish.isEmpty() ) { // °øÀ¯ ÀÚ¿ø ºñ¾ú´ÂÁö È®ÀÎ
+			while(!dish.isEmpty() ) { // ê³µìœ  ìì› ë¹„ì—ˆëŠ”ì§€ í™•ì¸
 				dish.wait();
 			}
 			dish.setEmpty(false);
-			System.out.println(i+ "¹øÂ° À½½Ä ¿Ï·á!!");
-			dish.notify();  // ¼ÒºñÀÚ Thread ¿¡°Ô Åëº¸
+			System.out.println(i+ "ë²ˆì§¸ ìŒì‹ ì™„ë£Œ!!");
+			dish.notify();  // ì†Œë¹„ì Thread ì—ê²Œ í†µë³´
 		}
 	}
 	@Override
@@ -121,7 +121,7 @@ class Customer implements Runnable { // »ı»êÀÚ Thread
 
 class MyClass extends Thread {
 	
-	private static final String MSG_TEMPLATE = "Ãâ·Â Áß [%s][%dÈ¸Â°]";
+	private static final String MSG_TEMPLATE = "ì¶œë ¥ ì¤‘ [%s][%díšŒì§¸]";
 	private final String threadName;
 	
 	public MyClass (String threadName) {
@@ -138,7 +138,7 @@ class MyClass extends Thread {
 }
 
 /** class Myclass2 implements Runnable {
-	private static final String MSG_TEMPLATE = "Ãâ·Â Áß [%s][%dÈ¸Â°]";
+	private static final String MSG_TEMPLATE = "ì¶œë ¥ ì¤‘ [%s][%díšŒì§¸]";
 	private final String threadName2;
 	
 	public MyClass2 (String threadName2) {
@@ -157,20 +157,21 @@ class MyClass extends Thread {
 class SharedCar {
 	public SharedCar() {}
 	public synchronized void drvie(String name, String where) {
-		System.out.println( "[" + name + "] Â÷·® Å¾½Â");
+		System.out.println( "[" + name + "] ì°¨ëŸ‰ íƒ‘ìŠ¹");
 		for(int i=1; i<= 5; ++i) {
-			System.out.println("[" + name + "] Â÷·® ¿îÇàÁß !!!");
+			System.out.println("[" + name + "] ì°¨ëŸ‰ ìš´í–‰ì¤‘ !!!");
 		}
-		System.out.println("[" + name + "]" + where + "¿¡ µµÂø");
+		System.out.println("[" + name + "]" + where + "ì— ë„ì°©");
 	}
 }
 
-/* synchronized( °øÀ¯ °´Ã¼ ) {
+/* synchronized( ê³µìœ  ê°ì²´ ) {
 *		code block
 *	}
 *
 */
 
+// Threadë¥¼ ìƒì†ë°›ëŠ” CarThread
 class CarThread extends Thread {
 	private SharedCar car;
 	private String who;
@@ -186,9 +187,8 @@ class CarThread extends Thread {
 	}
 	
 }
-
+// Sum í´ë˜ìŠ¤
 class Sum {
-	
 	public static final int MAX = 100;
 	public int sum = 0;
 	public Sum() {}
@@ -197,14 +197,15 @@ class Sum {
 			for(int i= start; i <= 100; i+= step) {
 				sum += i;
 			}
-			System.out.printf("%2d ~ %3d (%2d°£°İ) ÇÕ : %5d\n", start, MAX, step);
+			System.out.printf("%2d ~ %3d (%2dê°„ê²©) í•© : %5d\n", start, MAX, step);
 		} catch(Exception e ) {}
 	}
 }
-
+// ì“°ë ˆë“œë¥¼ ìƒì†ë°›ëŠ” worker í´ë˜ìŠ¤
 class Worker extends Thread {
 	private Sum sum;
 	private int start, step;
+	// ìƒì„±ì ìƒì„±
 	public Worker(Sum sum, int start, int step) {
 		this.sum = sum;
 		this.start = start;
@@ -215,6 +216,7 @@ class Worker extends Thread {
 	}
 }
 
+// ì“°ë ˆë“œ í´ë˜ìŠ¤
 class TotalThread extends Thread {
 	public static final int MAX = 100;
 	private int total;
@@ -236,7 +238,7 @@ class TotalThread extends Thread {
 	
 	@Override
 	public void run() {
-		final String MSG_TEMPLATE = "Ãâ·Â Áß [%s][%dÈ¸Â°]";
+		final String MSG_TEMPLATE = "ì¶œë ¥ ì¤‘ [%s][%díšŒì§¸]";
 		for(int i=i; i<= 100; i++) {
 			System.out.println(String.format(MSG_TEMPLATE, "thread3", i));
 		}
