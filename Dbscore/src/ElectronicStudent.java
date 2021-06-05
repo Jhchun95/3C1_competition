@@ -1,4 +1,4 @@
-
+// 전자공학 학생들의 클래스를 생성
 public class ElectronicStudent extends Student {
 public static final int ELECTRONIC_SUBJECT = 3;
 	
