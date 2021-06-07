@@ -3,24 +3,30 @@ public class Second {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int number = 10; // ¿ø½ÃÀÚ·áÇü(Á¤¼öÇü)
-		String str = "Hello"; // referenceÇü(¹®ÀÚ¿­)
+		int number = 10; // ì›ì‹œìë£Œí˜•(ì •ìˆ˜í˜•)
+		String str = "Hello"; // referenceí˜•(ë¬¸ìì—´)
 		
+		// ì¶œë ¥
 		System.out.println(number);
 		System.out.println(str);
 		
+		// ë³€ìˆ˜ ì„ ì–¸
 		int number2 = number;
 		String str2 = str; // new String("Hello")
+		
+		// ì¶œë ¥
 		System.out.println(number2);
 		System.out.println(str2);
 		
+		// ifë¬¸
 		if(number2 == number) {
 			System.out.println( "number == number2");
 		} else {
 			System.out.println( "number != number2");
 		}
 		
-		if(str2 == str) { // str2.equals(str) -> str2 ¿Í strÀÇ ³»¿ëÀ» ºñ±³ÇÑ´Ù.
+		// stringë¬¸ì€ equalsë¡œ ì¨ì•¼í•˜ëŠ”ë° ì–´ë–»ê²Œ ë‚˜ì˜¤ëŠ”ì§€ ì•Œê¸° ìœ„í•´ ì„ ì–¸í•œ ê²ƒ.
+		if(str2 == str) { // str2.equals(str) -> str2 ì™€ strì˜ ë‚´ìš©ì„ ë¹„êµí•œë‹¤.
 			System.out.println("str == str");
 		} else {
 			System.out.println("str != str2");
