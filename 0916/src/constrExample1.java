@@ -2,14 +2,15 @@
 public class constrExample1 {
 	public static void main(String args[])
 	{
-		GoodsStock pen = new GoodsStock("20141040 ÀüÁØÇõ", 350);
-		System.out.println("»óÇ°ÄÚµå :" + pen.goodsCode);
-		System.out.println("Àç°í¼ö·® :" + pen.stockNum);
+		// ì¶œë ¥ ì½”ë“œ
+		GoodsStock pen = new GoodsStock("20141040 ì „ì¤€í˜", 350);
+		System.out.println("ìƒí’ˆì½”ë“œ :" + pen.goodsCode);
+		System.out.println("ì¬ê³ ìˆ˜ëŸ‰ :" + pen.stockNum);
 		pen.addStock(1000);
-		System.out.println("»óÇ°ÄÚµå:" + pen.goodsCode);
-		System.out.println("Àç°í¼ö·®:" + pen.stockNum);
+		System.out.println("ìƒí’ˆì½”ë“œ:" + pen.goodsCode);
+		System.out.println("ì¬ê³ ìˆ˜ëŸ‰:" + pen.stockNum);
 		pen.subtractStock(132);
-		System.out.println("»óÇ°ÄÚµå:" + pen.goodsCode);
-		System.out.println("Àç°í¼ö·®:" + pen.stockNum);
+		System.out.println("ìƒí’ˆì½”ë“œ:" + pen.goodsCode);
+		System.out.println("ì¬ê³ ìˆ˜ëŸ‰:" + pen.stockNum);
 	}
 }
