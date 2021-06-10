@@ -17,6 +17,7 @@ public class HelloJava {
 //		
 		int a=1, b, c;
 		
+		// a의 증감을 비교하기 위해 선언해본 것
 		b = a++;
 		c = ++a;
 
