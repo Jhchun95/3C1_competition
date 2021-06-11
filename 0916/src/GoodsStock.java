@@ -1,4 +1,5 @@
 
+// 상품 관련 클래스
 public class GoodsStock {
 	String goodsCode;
 	int stockNum;
