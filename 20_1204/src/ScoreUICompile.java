@@ -1,14 +1,15 @@
 import java.util.Scanner;
 
+// ScoreUI ìƒì†
 public class ScoreUICompile extends ScoreUI {
 
-	private int num; // ÇĞ»ı¼ö
-    private ScoreUI[] students; // ScoreV1ÀÇ ¹è¿­ »ç¿ë 
+	private int num; // í•™ìƒìˆ˜
+    private ScoreUI[] students; // ScoreV1ì˜ ë°°ì—´ ì‚¬ìš© 
  
-    // »ı¼ºÀÚ ÃÊ±âÈ­
+    // ìƒì„±ì ì´ˆê¸°í™”
     public ScoreUICompile(int num) {
         this.num = num;
-        students = new ScoreUI[this.num];    //°´Ã¼ »ı¼º
+        students = new ScoreUI[this.num];    //ê°ì²´ ìƒì„±
     }
  
     // num getter&setter
@@ -20,7 +21,7 @@ public class ScoreUICompile extends ScoreUI {
         this.num = num;
     }
  
-    //ÀÔ·Â¹ŞÀº ¸¸Å­ÀÇ students °´Ã¼ »ı¼º
+    //ì…ë ¥ë°›ì€ ë§Œí¼ì˜ students ê°ì²´ ìƒì„±
     void CrStudent(Scanner sc) {
         for( int i = 0; i<num; i++) {
             students[i] = new ScoreUI();
@@ -29,12 +30,12 @@ public class ScoreUICompile extends ScoreUI {
         
     }
  
- 
+ 	// main
     public static void main(String[] args) {
  
-        Scanner sc = new Scanner(System.in);    //°´Ã¼»ı¼º
-        System.out.println("ÇĞ»ı ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
-        ScoreUICompile students = new ScoreUICompile(sc.nextInt()); // °´Ã¼ »ı¼º°ú µ¿½Ã¿¡ ÇĞ»ı¼ö ÀÔ·Â¹Ş±â
+        Scanner sc = new Scanner(System.in);    //ê°ì²´ìƒì„±
+        System.out.println("í•™ìƒ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
+        ScoreUICompile students = new ScoreUICompile(sc.nextInt()); // ê°ì²´ ìƒì„±ê³¼ ë™ì‹œì— í•™ìƒìˆ˜ ì…ë ¥ë°›ê¸°
         students.CrStudent(sc);
  
     }
